@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Home() {
   const [showMessage, setShowMessage] = useState(false);
   const [showHiMessage, setShowHiMessage] = useState(false);
+  const [showBananaMessage, setShowBananaMessage] = useState(false);
 
   const handleClick = () => {
     setShowMessage(true);
@@ -19,6 +20,14 @@ export default function Home() {
     // Hide the message after 3 seconds
     setTimeout(() => {
       setShowHiMessage(false);
+    }, 3000);
+  };
+
+  const handleBananaClick = () => {
+    setShowBananaMessage(true);
+    // Hide the message after 3 seconds
+    setTimeout(() => {
+      setShowBananaMessage(false);
     }, 3000);
   };
 
@@ -40,6 +49,13 @@ export default function Home() {
         >
           Say Hi
         </button>
+
+        <button
+          onClick={handleBananaClick}
+          className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Banana
+        </button>
       </div>
       
       {showMessage && (
@@ -51,6 +67,12 @@ export default function Home() {
       {showHiMessage && (
         <div className="mt-8 p-4 bg-purple-100 text-purple-800 rounded-lg shadow-md">
           <p className="text-xl font-medium">Hi there!</p>
+        </div>
+      )}
+      
+      {showBananaMessage && (
+        <div className="mt-8 p-4 bg-yellow-100 text-yellow-800 rounded-lg shadow-md">
+          <p className="text-xl font-medium">yellow</p>
         </div>
       )}
     </div>
